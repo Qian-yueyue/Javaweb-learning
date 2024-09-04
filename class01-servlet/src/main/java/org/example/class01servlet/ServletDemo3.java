@@ -28,7 +28,7 @@ public class ServletDemo3 implements Servlet {
     }
 
     /**
-     * 获取Servlet 配置
+     * 获取Servlet3 配置
      *
      * @return
      */
@@ -52,7 +52,7 @@ public class ServletDemo3 implements Servlet {
     }
 
     /***
-     * 获取 Servlet信息
+     * 获取 Servlet3信息
      * @return
      */
     @Override

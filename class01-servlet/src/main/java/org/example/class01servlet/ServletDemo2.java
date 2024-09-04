@@ -25,7 +25,7 @@ public class ServletDemo2 implements Servlet {
     }
 
     /**
-     * 获取Servlet 配置
+     * 获取Servlet2 配置
      *
      * @return
      */
@@ -49,7 +49,7 @@ public class ServletDemo2 implements Servlet {
     }
 
     /***
-     * 获取 Servlet信息
+     * 获取 Servlet2信息
      * @return
      */
     @Override
