@@ -42,6 +42,12 @@ public class VerifyCode extends HttpServlet {
             g.setColor(color);
             g.drawLine(x1,x2,y1,y2);
         }
+        for(int i = 0;i<500;i++) {
+            Random ran = new Random();
+            int x = ran.nextInt(width);
+            int y = ran.nextInt(width);
+            g.drawOval(x, y, 1, 1);
+        }
         ImageIO.write(image,"jpg",resp.getOutputStream());
     }
 }
