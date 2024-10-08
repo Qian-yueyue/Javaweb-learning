@@ -10,6 +10,7 @@
         <module name="class03-respose" />
         <module name="class02-request" />
         <module name="book-online" />
+        <module name="class04-cookie-sesssion" />
       </profile>
     </annotationProcessing>
   </component>

@@ -3,10 +3,7 @@ package org.example.bookonline.servlet;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 import org.example.bookonline.entity.User;
 import org.example.bookonline.service.UserService;
 import org.example.bookonline.service.impl.UserServiceImpl;
@@ -26,6 +23,7 @@ public class LoginServlet extends HttpServlet {
         //      获取表单数据
         String account = req.getParameter("account");
         String password = req.getParameter("password");
+        String remember = req.getParameter("remember");
 
         //      调用登录功能
         User user = userService.signIn(account, password);
@@ -33,6 +31,14 @@ public class LoginServlet extends HttpServlet {
             //      登录成功，将用户对象记入session
             HttpSession session = req.getSession();
             session.setAttribute("user", user);
+            if (remember != null) {
+                Cookie usernameCookie = new Cookie("account",account);
+                Cookie passwordCookie = new Cookie("password",password);
+                usernameCookie.setMaxAge(60 * 60 *24 *7);
+                passwordCookie.setMaxAge(60 * 60 *24 *7);
+                resp.addCookie(usernameCookie);
+                resp.addCookie(passwordCookie);
+            }
             //      重定向回到 /index，进入 IndexServlet
             resp.sendRedirect("/index");
         } else {
