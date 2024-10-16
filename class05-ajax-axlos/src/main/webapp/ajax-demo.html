@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+</head>
+<body>
+<h1>下方是返回的数据</h1>
+<h2 id="info"></h2>
+<script>
+    let xHttp;
+    if (window.XMLHttpRequest){
+        xHttp =new XMLHttpRequest();
+    }else {
+        xHttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xHttp.open("GET", "http://localhost:8080/ajaxServlet");
+    xHttp.send();
+
+    xHttp.onreadystatechange = function() {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            document.getElementById("info").innerHTML = this.responseText;
+        }
+    }
+    // xHttp.onreadystatechange=function (){
+    //     if (this.status===200){
+    //         setTimeout(function(){
+    //             document.getElementById("info").innerHTML=this.responseText;
+    //         },3000)
+    //     }
+    // }
+</script>
+</body>
+</html>
