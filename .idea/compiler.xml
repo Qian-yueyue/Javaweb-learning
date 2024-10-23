@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="class01-servlet" />
         <module name="class03-respose" />
+        <module name="class06-filter-listener" />
         <module name="brand-list" />
         <module name="class05-ajax-axlos" />
         <module name="book-online" />
